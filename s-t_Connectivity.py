@@ -4,7 +4,7 @@ graphOne = "testgraph1.txt"
 graphTwo = "testgraph2.txt"
 graphThree = "testgraph3.txt"
 
-with open(graphOne, 'r') as f:
+with open(graphThree, 'r') as f:
     n = int(f.readline())
     s = int(f.readline())
     t = int(f.readline())
@@ -44,8 +44,10 @@ def randomised_st_connectivity(G, n, s, t):
         return (True, stepCount)
     else:
         return (False, stepCount)
-
-
-steps = randomised_st_connectivity(graph, n, s, t)
-
-print("\n", steps)
+j = 0
+for i in range(100):
+    steps = randomised_st_connectivity(graph, n, s, t)
+    if steps[0]:
+        j = j + 1
+    print(steps)
+print(j)
